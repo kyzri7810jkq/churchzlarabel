@@ -1,0 +1,37 @@
+ 
+#activityModal .modal-content{  
+  width: 750px;
+  margin: auto;
+}
+
+#activityModal .table > tbody > tr:first-child > td {
+    border: none;
+} 
+.note-editable{
+	min-height: 200px;
+} 
+#activity-container .rdn{ 
+	background: #f7f7f7;
+    padding: 19px 0px 13px 25px;
+    border: 1px solid #ccc;
+    margin-bottom: 22px;
+}
+ 
+
+.breadcrumb li {
+    padding: 5px;
+}
+
+.breadcrumb li:after { 
+	display: inline-block;
+    padding-right: .5rem;
+    padding-left: .5rem;
+    color: #6c757d;
+    content: "/";
+} 
+.breadcrumb li:last-child:after { 
+	content: "";
+}
+#search_input{
+	width: 300px;
+}
