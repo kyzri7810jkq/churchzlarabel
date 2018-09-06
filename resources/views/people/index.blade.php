@@ -4,11 +4,17 @@
 
 @section('content') 
 
-@if( isset($success)):
+@if(isset($success)):
+	<?php print_r($_SESSION); ?>
 	<div class="alert alert-success">
 		{{ $success }}
 	</div>
 @endif
+<p>Search People by Lastname or Firstname</p>
+<form class="form-inline">
+    <i class="fa fa-search" aria-hidden="true"></i>
+    <input class="form-control form-control-sm ml-3 w-25" type="text" placeholder="Type your search here." aria-label="Search">
+</form>
 	<a href="{{ route('add_people') }}" class="pull-right btn btn-success btn-sm">
 		Add New &nbsp;<i class="fa fa-plus"></i>
 	</a><br><br>

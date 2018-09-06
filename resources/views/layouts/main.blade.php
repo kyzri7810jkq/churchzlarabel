@@ -34,7 +34,7 @@
         </li>  
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="tracks">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapsePeople" data-parent="#exampleAccordion">
-            <i class="fa fa-road"></i>
+            <i class="fa fa-address-card-o"></i>
             <span class="nav-link-text">People</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapsePeople">
@@ -49,7 +49,7 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="tracks">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseTracks" data-parent="#exampleAccordion">
             <i class="fa fa-road"></i>
-            <span class="nav-link-text">Tracks</span>
+            <span class="nav-link-text">CC8 Track</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseTracks">
             <li>

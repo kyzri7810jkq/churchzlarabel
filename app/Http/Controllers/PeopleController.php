@@ -11,7 +11,7 @@ class PeopleController extends Controller
 {
     public function index()
     {
-    	$people = DB::table('people')->paginate(5);
+    	$people = DB::table('people')->orderby('id', 'desc')->paginate(5);
     	return view('people.index', compact('people'));
     }
 
@@ -45,9 +45,9 @@ class PeopleController extends Controller
     	$people->save();
     	$msg =  'Successfully added New record';
     	if( $request->get('store')){ 
-    		return redirect()->route('add_people')->with('success', $msg);
-    	}else{ 
     		return redirect()->route('view_people')->with('success', $msg);
+    	}else{ 
+    		return redirect()->route('add_people')->with('success', $msg);
     	}
     } 
 }
