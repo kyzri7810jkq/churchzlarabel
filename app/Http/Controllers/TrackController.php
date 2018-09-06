@@ -15,7 +15,7 @@ class TrackController extends Controller
      */
     public function index()
     {
-        $tracks = DB::table('tracks')->paginate(2);
+        $tracks = DB::table('tracks')->paginate(5);
 
         return view('tracks.index', compact('tracks'));
     }
@@ -95,6 +95,8 @@ class TrackController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $track = Track::find($id);
+        $track->delete(); 
+        return redirect()->back()->with('msg', 'Successfully deleted');
     }
 }

@@ -33,6 +33,20 @@
           </a>
         </li>  
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="tracks">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapsePeople" data-parent="#exampleAccordion">
+            <i class="fa fa-road"></i>
+            <span class="nav-link-text">People</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapsePeople">
+            <li>
+              <a href="{{ route('add_people') }}">Add New</a>
+            </li>
+            <li>
+              <a href="{{ route('view_people') }}">display All</a>
+            </li>
+          </ul>
+        </li> 
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="tracks">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseTracks" data-parent="#exampleAccordion">
             <i class="fa fa-road"></i>
             <span class="nav-link-text">Tracks</span>

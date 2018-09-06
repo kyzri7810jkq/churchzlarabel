@@ -26,3 +26,9 @@ Route::prefix('users')->group(function(){
 });
 
 Route::resource('tracks', 'TrackController');
+
+Route::prefix('people')->group(function(){
+	Route::get('/add', 'PeopleController@add')->name('add_people')->middleware('auth');
+	Route::post('/store', 'PeopleController@store')->name('store_people')->middleware('auth');
+	Route::get('/', 'PeopleController@index')->name('view_people')->middleware('auth');
+});
