@@ -50,4 +50,14 @@ class PeopleController extends Controller
     		return redirect()->route('add_people')->with('success', $msg);
     	}
     } 
+
+    /* @method = POST
+     */
+    public function ajax(Request $request)
+    {
+       return DB::table('people')
+                ->where('lastname', 'LIKE' , $request->get('input'))
+                ->limit(5)
+                ->get(); 
+    }
 }

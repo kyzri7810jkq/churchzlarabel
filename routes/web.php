@@ -15,6 +15,9 @@ Route::get('/login', 'AuthController@loginForm')->name('login');
 Route::post('/login', 'AuthController@login');
 Route::get('/logout', 'AuthController@logout')->name('logout');
 
+Route::get('/', function(){
+	return view('dashboard');
+})->middleware('auth');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard')->middleware('auth');
@@ -31,4 +34,11 @@ Route::prefix('people')->group(function(){
 	Route::get('/add', 'PeopleController@add')->name('add_people')->middleware('auth');
 	Route::post('/store', 'PeopleController@store')->name('store_people')->middleware('auth');
 	Route::get('/', 'PeopleController@index')->name('view_people')->middleware('auth');
+	Route::post('/ajax-search', 'PeopleController@ajax')->middleware('auth');
+});
+
+Route::prefix('seminars')->group(function(){
+	Route::get('/', 'SeminarController@attendees')->name('attendees')->middleware('auth');
+	Route::get('/add', 'SeminarController@insert')->name('insert_attendees')->middleware('auth');
+	Route::post('/add', 'SeminarController@store')->name('store_attendees')->middleware('auth');
 });

@@ -31,10 +31,24 @@
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
-        </li>  
+        </li>   
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="tracks">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseSeminars" data-parent="#exampleAccordion">
+            <i class="fa fa-street-view"></i>
+            <span class="nav-link-text">CC8 Seminars</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseSeminars">
+            <li>
+              <a href="{{ route('insert_attendees') }}">Add New</a>
+            </li>
+            <li>
+              <a href="{{ route('attendees') }}">display All</a>
+            </li>
+          </ul>
+        </li> 
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="tracks">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapsePeople" data-parent="#exampleAccordion">
-            <i class="fa fa-address-card-o"></i>
+            <i class="fa fa-address-book"></i>
             <span class="nav-link-text">People</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapsePeople">
