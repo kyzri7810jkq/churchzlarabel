@@ -13,7 +13,9 @@ class SeminarController extends Controller
 	 */
 	public function attendees()
 	{
-		return view('seminars.attendees');
+		$sem = new Seminar();
+    	$track  = DB::table('tracks')->get();
+		return view('seminars.attendees', ['sem' => $sem->allSeminars(), 'track' => $track ]);
 	}
 
 	/* @GET
@@ -36,13 +38,14 @@ class SeminarController extends Controller
     	$this->validate($request, [
     		'track' => 'required',
     		'tag'	=> 'required',
-    		'batch' => 'required|numeric',
+    		'qbatch' => 'required|integer',
     		'date_event' => 'date|required',
     		'persid' => 'required',
     		'status' => 'required'
     	],[
     		'persid.required' => 'Please select an attendee', 
-    		'date_event.date' => 'Please type a valid date'
+    		'date_event.date' => 'Please type a valid date',
+    		'qbatch.integer'  => 'Batch should be a number'
     	]);
 
     	$sem = new Seminar([
@@ -51,7 +54,7 @@ class SeminarController extends Controller
     		'tag'          => $request->get('tag'), 
     		'status'       => $request->get('status'), 
     		'comment'      => $request->get('comment'), 
-    		'batch' 	   => $request->get('batch'), 
+    		'batch' 	   => $request->get('qbatch'), 
     		'date_ofevent' => $request->get('date_event'), 
     		'reference'    => $request->get('reference') 
     	]);

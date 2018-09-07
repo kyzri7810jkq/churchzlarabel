@@ -4,12 +4,12 @@
 
 @section('content') 
 
-@if(isset($success)):
-	<?php print_r($_SESSION); ?>
+@if( session('success')):
 	<div class="alert alert-success">
 		{{ $success }}
 	</div>
 @endif
+
 <p>Search People by Lastname or Firstname</p>
 <form class="form-inline">
     <i class="fa fa-search" aria-hidden="true"></i>

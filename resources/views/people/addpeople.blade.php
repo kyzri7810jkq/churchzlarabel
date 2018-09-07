@@ -5,7 +5,7 @@
 @section('content')
 <a href="{{ route('view_people') }}" class="pull-right">&laquo;Go back to List</a> 
 
-@if( isset($success)):
+@if( session('success')):
 	<div class="alert alert-success">
 		{{ $success }}
 	</div>
