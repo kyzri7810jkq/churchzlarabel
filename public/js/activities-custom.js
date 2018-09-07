@@ -57,3 +57,13 @@
     $('.jumbotron').html($table);
     return false;
  });
+
+$(function(){
+  $('.btn-delete').click(function(){
+    var data = $(this).data('src');
+    if(confirm('You are going to delete this record '+ data +', are you sure?')){
+      return true;
+    }
+    return false;
+  });
+});

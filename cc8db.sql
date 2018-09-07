@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 07, 2018 at 08:56 AM
+-- Generation Time: Sep 07, 2018 at 02:03 PM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.0.26
 
@@ -96,7 +96,11 @@ INSERT INTO `people` (`id`, `lastname`, `firstname`, `middlename`, `birthday`, `
 (13, 'sdf', 'sdf', 'sdf', '1989-12-12', NULL, NULL, NULL, '2018-09-06 03:45:35', '2018-09-06 03:45:35'),
 (14, 'asdad', 'asd', 'asd', '1989-12-12', NULL, NULL, NULL, '2018-09-06 03:46:33', '2018-09-06 03:46:33'),
 (15, 'Amador', 'samuel', 'ignacio', '1989-08-27', NULL, '93874', NULL, '2018-09-06 22:06:54', '2018-09-06 22:06:54'),
-(16, 'amador', 'rica', 'test', '1989-12-01', NULL, NULL, NULL, '2018-09-06 22:07:13', '2018-09-06 22:07:13');
+(16, 'amador', 'rica', 'test', '1989-12-01', NULL, NULL, NULL, '2018-09-06 22:07:13', '2018-09-06 22:07:13'),
+(17, 'Doe', 'John', 'Test', '1989-12-08', 'adasd\r\nasdasd', '029348', 'spouse', '2018-09-06 23:25:35', '2018-09-06 23:25:35'),
+(18, 'Jordan', 'Michael', NULL, '1989-12-12', NULL, '237', '982', '2018-09-07 03:46:53', '2018-09-07 03:46:53'),
+(19, 'Curry', 'Stephen', NULL, '1989-09-01', 'sdf', 'asd', 'dfd86f', '2018-09-07 03:47:56', '2018-09-07 03:47:56'),
+(20, 'amador', 'tomasa', NULL, '1960-12-09', 'sdfsdf', 'sdgf', 'jhgsd', '2018-09-07 03:49:27', '2018-09-07 03:49:27');
 
 -- --------------------------------------------------------
 
@@ -110,13 +114,23 @@ CREATE TABLE `seminars` (
   `track_id` int(11) NOT NULL,
   `tag` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'first_timer',
   `status` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'incomplete',
-  `comment` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL,
+  `comment` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `batch` int(11) DEFAULT NULL,
   `date_ofevent` date NOT NULL,
   `reference` int(250) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `seminars`
+--
+
+INSERT INTO `seminars` (`id`, `people_id`, `track_id`, `tag`, `status`, `comment`, `batch`, `date_ofevent`, `reference`, `created_at`, `updated_at`) VALUES
+(1, 17, 1, 'first_timer', 'completed', NULL, NULL, '1989-12-02', 1212, '2018-09-06 23:32:08', '2018-09-06 23:32:08'),
+(4, 17, 1, 'first_timer', 'completed', 'test', NULL, '1989-12-12', 12, '2018-09-07 02:11:47', '2018-09-07 02:11:47'),
+(5, 17, 1, 'first_timer', 'completed', 'test', 12, '1989-12-12', 12, '2018-09-07 02:12:38', '2018-09-07 02:12:38'),
+(6, 15, 2, 'first_timer', 'completed', 'qbatch', 12, '1989-12-21', 112, '2018-09-07 02:13:49', '2018-09-07 02:13:49');
 
 -- --------------------------------------------------------
 
@@ -223,13 +237,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `people`
 --
 ALTER TABLE `people`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `seminars`
 --
 ALTER TABLE `seminars`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tracks`

@@ -41,4 +41,5 @@ Route::prefix('seminars')->group(function(){
 	Route::get('/', 'SeminarController@attendees')->name('attendees')->middleware('auth');
 	Route::get('/add', 'SeminarController@insert')->name('insert_attendees')->middleware('auth');
 	Route::post('/add', 'SeminarController@store')->name('store_attendees')->middleware('auth');
+	Route::post('/remove', 'SeminarController@remove')->name('delete_seminar')->middleware('auth');
 });

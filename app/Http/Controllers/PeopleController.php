@@ -11,7 +11,12 @@ class PeopleController extends Controller
 {
     public function index()
     {
-    	$people = DB::table('people')->orderby('id', 'desc')->paginate(5);
+    	$people = DB::table('people')->orderby('id', 'desc'); 
+        if( request()->input('search')){
+            $input = request()->input('search');
+            $people = $people->where('lastname', 'LIKE', $input);
+        }
+        $people = $people->paginate(5);
     	return view('people.index', compact('people'));
     }
 

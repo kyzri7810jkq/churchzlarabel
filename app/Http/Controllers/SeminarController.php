@@ -11,11 +11,19 @@ class SeminarController extends Controller
 {
 	/* @index
 	 */
-	public function attendees()
+	public function attendees(Request $request)
 	{
 		$sem = new Seminar();
-    	$track  = DB::table('tracks')->get();
-		return view('seminars.attendees', ['sem' => $sem->allSeminars(), 'track' => $track ]);
+    	$track  = DB::table('tracks')->get(); 
+    	$data = $sem->allSeminars();
+    	if( $request->get('track') || $request->get('batch') || $request->get('lastname')){
+    		$data = $sem->searchResult($request);
+    	}
+		return view('seminars.attendees', [
+			'sem'   => $data , 
+			'track' => $track,
+			'rows'  => $sem->totalRows() 
+		]);
 	}
 
 	/* @GET
@@ -60,5 +68,14 @@ class SeminarController extends Controller
     	]);
     	$sem->save();
     	return redirect()->route('attendees')->with('success', 'Successfully added');
+    }
+
+    /*@POST
+     */
+    public function remove(Request $request)
+    { 
+    	$seminar = Seminar::find($request->get('hiddid'));
+    	$seminar->delete();
+    	return redirect()->back()->with('success', 'Successfully Deleted record #' . $request->get('hiddid'));
     }
 }

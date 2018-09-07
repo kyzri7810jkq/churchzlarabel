@@ -3,17 +3,17 @@
 @section('title', 'People List')
 
 @section('content') 
-
-@if( session('success')):
+ 
+@if( session('success'))
 	<div class="alert alert-success">
-		{{ $success }}
+		{{ session('success') }}
 	</div>
 @endif
 
 <p>Search People by Lastname or Firstname</p>
-<form class="form-inline">
+<form class="form-inline" action="" method="GET">
     <i class="fa fa-search" aria-hidden="true"></i>
-    <input class="form-control form-control-sm ml-3 w-25" type="text" placeholder="Type your search here." aria-label="Search">
+    <input name="search" class="form-control form-control-sm ml-3 w-25" type="text" placeholder="Type your search here." value="{{ app('request')->input('search') }}" aria-label="Search">
 </form>
 	<a href="{{ route('add_people') }}" class="pull-right btn btn-success btn-sm">
 		Add New &nbsp;<i class="fa fa-plus"></i>
@@ -42,5 +42,5 @@
 		@endforeach 
 	</table>
 
-	{{ $people->links() }}
+	{{ $people->appends(request()->except('page'))->links() }}
 @endsection
