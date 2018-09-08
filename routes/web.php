@@ -18,8 +18,8 @@ Route::get('/logout', 'AuthController@logout')->name('logout');
 Route::get('/', function(){
 	return view('dashboard');
 })->middleware('auth');
-Route::get('/dashboard', function () {
-    return view('dashboard');
+Route::get('/dashboard', function () {  
+	Route::get('/', 'DashboardController@index');
 })->name('dashboard')->middleware('auth');
 
 Route::prefix('users')->group(function(){ 

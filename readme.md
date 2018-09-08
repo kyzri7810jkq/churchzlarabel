@@ -1,3 +1,10 @@
+1. Composer install
+2. php artisan key:generate
+3. php artisan cache:clear
+4. php artisan migrate
+
+Rename the server.php in the your Laravel root folder to index.php and copy the .htaccess file from /public directory to your Laravel root folder.
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
