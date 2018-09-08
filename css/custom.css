@@ -1,5 +1,32 @@
- 
- 
+
+.h-100{
+    height: auto !important;
+} 
+.table td, .table th{
+    padding: 7px 10px !important;
+}
+ul.pagination li.disabled,
+ul.pagination li.active{  
+    padding: 3px 12px;
+    border: 1px solid #000;
+    background: #6c757d;
+    color: #fff;
+}
+ul.pagination li{ 
+    background: #fff;
+    border: 1px solid #007bff;
+    margin-right: 3px;
+    border-radius: 5px;
+}
+ul.pagination li a{ 
+    padding: 3px 12px;
+    display: block; 
+    text-decoration: none;
+}
+ul.pagination li a:hover{
+    background: #f0f0f0;
+    border-radius: 5px;
+}
 #activityModal .modal-content{  
   width: 750px;
   margin: auto;

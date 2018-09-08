@@ -15,12 +15,9 @@ Route::get('/login', 'AuthController@loginForm')->name('login');
 Route::post('/login', 'AuthController@login');
 Route::get('/logout', 'AuthController@logout')->name('logout');
 
-Route::get('/', function(){
-	return view('dashboard');
-})->middleware('auth');
-Route::get('/dashboard', function () {  
-	Route::get('/', 'DashboardController@index');
-})->name('dashboard')->middleware('auth');
+Route::get('/','DashboardController@index')->name('home')->middleware('auth');
+
+Route::get('/dashboard','DashboardController@index')->name('dashboard')->middleware('auth');
 
 Route::prefix('users')->group(function(){ 
 	Route::get('/add', 'AuthController@register')->name('register')->middleware('auth');

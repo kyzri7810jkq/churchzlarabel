@@ -113,8 +113,8 @@
 	    <div class="container-fluid">
 	    <!-- Breadcrumbs-->
 	    <ol class="breadcrumb">
-	       <li><a href="/">Home</a>  </li>               
-			<?php $link = "" ?>
+	       <li><a href="{{ url('/') }}">Home</a>  </li>               
+			<?php $link = url('/'); ?>
 			@for($i = 1; $i <= count(Request::segments()); $i++)
 			    @if($i < count(Request::segments()) & $i > 0)
 			    <?php $link .= "/" . Request::segment($i); ?>
@@ -129,10 +129,10 @@
   </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('vendor_styles/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor_styles/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- Core plugin JavaScript-->
-    <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>  
+    <script src="{{ asset('vendor_styles/jquery-easing/jquery.easing.min.js') }}"></script>  
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('js/sb-admin.min.js') }}"></script>

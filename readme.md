@@ -5,6 +5,12 @@
 
 Rename the server.php in the your Laravel root folder to index.php and copy the .htaccess file from /public directory to your Laravel root folder.
 
+
+Edit your applications's database config file config/database.php
+
+In mysql array, set strict => false to disable MySQL's strict mode
+
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">

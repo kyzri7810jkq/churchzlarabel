@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 07, 2018 at 02:03 PM
--- Server version: 10.1.29-MariaDB
--- PHP Version: 7.0.26
+-- Generation Time: Sep 08, 2018 at 07:02 AM
+-- Server version: 10.1.25-MariaDB
+-- PHP Version: 7.0.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -81,8 +81,8 @@ CREATE TABLE `people` (
 --
 
 INSERT INTO `people` (`id`, `lastname`, `firstname`, `middlename`, `birthday`, `address`, `contact`, `spouse`, `created_at`, `updated_at`) VALUES
-(1, 'amador', 'samuel', 'ignacio', '1989-08-27', 'sdsd', '3984', 'kjh', '2018-09-05 20:27:47', '2018-09-05 20:27:47'),
-(2, 'sdhj', 'sdf', '123', '1989-12-08', '123', '123', '123', '2018-09-05 20:41:58', '2018-09-05 20:41:58'),
+(1, 'amador', 'samuel', 'ignacio', '1989-09-09', 'sdsd', '3984', 'kjh', '2018-09-05 20:27:47', '2018-09-05 20:27:47'),
+(2, 'sdhj', 'sdf', '123', '1989-09-10', '123', '123', '123', '2018-09-05 20:41:58', '2018-09-05 20:41:58'),
 (3, 'sdf', 'kjdkfh', 'kdjf', '1989-01-01', NULL, NULL, NULL, '2018-09-05 20:43:09', '2018-09-05 20:43:09'),
 (4, 'asd', 'jsjkh', NULL, '1989-12-12', NULL, NULL, NULL, '2018-09-05 20:44:40', '2018-09-05 20:44:40'),
 (5, 'aaksdj', 'kjshdj', 'kjsds', '1989-12-12', NULL, NULL, NULL, '2018-09-05 20:45:11', '2018-09-05 20:45:11'),
@@ -99,8 +99,8 @@ INSERT INTO `people` (`id`, `lastname`, `firstname`, `middlename`, `birthday`, `
 (16, 'amador', 'rica', 'test', '1989-12-01', NULL, NULL, NULL, '2018-09-06 22:07:13', '2018-09-06 22:07:13'),
 (17, 'Doe', 'John', 'Test', '1989-12-08', 'adasd\r\nasdasd', '029348', 'spouse', '2018-09-06 23:25:35', '2018-09-06 23:25:35'),
 (18, 'Jordan', 'Michael', NULL, '1989-12-12', NULL, '237', '982', '2018-09-07 03:46:53', '2018-09-07 03:46:53'),
-(19, 'Curry', 'Stephen', NULL, '1989-09-01', 'sdf', 'asd', 'dfd86f', '2018-09-07 03:47:56', '2018-09-07 03:47:56'),
-(20, 'amador', 'tomasa', NULL, '1960-12-09', 'sdfsdf', 'sdgf', 'jhgsd', '2018-09-07 03:49:27', '2018-09-07 03:49:27');
+(19, 'Curry', 'Stephen', NULL, '1989-09-11', 'sdf', 'asd', 'dfd86f', '2018-09-07 03:47:56', '2018-09-07 03:47:56'),
+(20, 'amador', 'tomasa', NULL, '1960-09-11', 'sdfsdf', 'sdgf', 'jhgsd', '2018-09-07 03:49:27', '2018-09-07 03:49:27');
 
 -- --------------------------------------------------------
 
@@ -152,7 +152,9 @@ CREATE TABLE `tracks` (
 
 INSERT INTO `tracks` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES
 (1, 'Ablaze 1', 'Salvation Module', '2018-09-06 22:43:14', '2018-09-06 22:43:14'),
-(2, 'Ablaze 2', 'Bible-based module', '2018-09-06 22:43:54', '2018-09-06 22:43:54');
+(2, 'Ablaze 2', 'Bible-based module', '2018-09-06 22:43:54', '2018-09-06 22:43:54'),
+(3, 'CAFE1', 'Adamic Covenant', '2018-09-07 18:51:27', '2018-09-07 18:51:27'),
+(4, 'CAFE2', 'Noahic covenant', '2018-09-07 18:51:42', '2018-09-07 18:51:42');
 
 -- --------------------------------------------------------
 
@@ -176,11 +178,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'smzapp2010@gmail.com', '$2y$10$16ax6/XgFnYGyOD0IsElpuiHGycLAmAw/WVmiPDMc98tHeyvCkbdK', 'admin', 'j3j2NhUpjPc502l6xUxQmbThRyPFivkhuShzyGjIF2IEiyKPMqbIrHAu5KBH', '2018-07-02 11:43:55', '2018-07-02 11:43:55'),
-(2, 'student1', 'student1@gmail.com', '$2y$10$Unvogq7wAR.VlVQ6BaD2o.IMcEos/99LRj8vb1VXQj/Cm0L2lmoRG', 'student', NULL, '2018-07-02 11:44:18', '2018-07-02 11:44:18'),
-(3, 'student2', 'student2@gmail.com', '$2y$10$GQ9ot.yqSVcVjJoLna.hFeBQCxEgVO/1HNovJpcMDFqz.EkoWAKzG', 'student', NULL, '2018-07-02 11:44:34', '2018-07-02 11:44:34'),
-(4, 'student3', 'student3@gmail.com', '$2y$10$eXgjKnjMGoBIR1XnWQ0LKut9QHDHKlKcf2dO9WJu3BCIU.gYvzSPO', 'student', NULL, '2018-07-02 11:44:47', '2018-07-02 11:44:47'),
-(5, 'teacher', 'teacher@gmail.com', '$2y$10$OPZ/VVug.widifvr46NdSO1oa8ajiZGAt3qHCEmnrmsin6RRadXFe', 'teacher', NULL, '2018-07-04 16:43:34', '2018-07-04 16:43:34');
+(1, 'admin', 'smzapp2010@gmail.com', '$2y$10$16ax6/XgFnYGyOD0IsElpuiHGycLAmAw/WVmiPDMc98tHeyvCkbdK', 'admin', 'PU1Inwof0TESsQleXWCdjjYB0532ATvXmmHu3Kr33Ah6DTldKHsOjwRMF6hG', '2018-07-02 11:43:55', '2018-07-02 11:43:55');
 
 --
 -- Indexes for dumped tables
@@ -232,31 +230,26 @@ ALTER TABLE `users`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `people`
 --
 ALTER TABLE `people`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
 --
 -- AUTO_INCREMENT for table `seminars`
 --
 ALTER TABLE `seminars`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `tracks`
 --
 ALTER TABLE `tracks`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-COMMIT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -55,4 +55,16 @@ class Seminar extends Model
     {
     	return $this->total_result;
     }
+
+    public function recent()
+    {
+        return DB::table('seminars')
+                 ->selectRaw('title, track_id, date_ofevent, count(*) as total_count')
+                 ->join('tracks', 'tracks.id', 'seminars.track_id')
+                 ->groupBy('track_id')
+                 ->orderBy('date_ofevent', 'DESC')
+                 ->limit(10)
+                 ->get();
+    }
+    
 }

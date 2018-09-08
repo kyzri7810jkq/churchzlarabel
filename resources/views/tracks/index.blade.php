@@ -13,20 +13,20 @@
 		<th>ID</th>
 		<th>Title</th>
 		<th>Details</th> 
-		<th>Delete</th>
+	<!-- 	<th>Delete</th> -->
 	</tr> 
 	@foreach($tracks as $t)
 	<tr>
 		<td>{{ $t->id }}</td>
 		<td>{{ $t->title }}</td>
 		<td>{{ $t->description }}</td> 
-		<td>  
+		<!-- <td>  
 			<form action="{{action('TrackController@destroy', $t->id)}}" method="post">
 	            {{csrf_field()}}
 	            <input name="_method" type="hidden" value="DELETE">
 	            <button class="btn btn-danger btn-sm" type="submit">Delete</button>
 	          </form>
-	     </td>
+	     </td> -->
 	</tr>
 	@endforeach
 

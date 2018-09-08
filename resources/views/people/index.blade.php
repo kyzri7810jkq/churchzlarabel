@@ -26,8 +26,7 @@
 			<th>Birthday</th>
 			<th>Address</th>
 			<th>Spouse</th>
-			<th>Contact</th>
-			<th>Delete</th>
+			<th>Contact</th> 
 		</tr>
 		@foreach($people as $p)
 			<tr>
@@ -36,8 +35,7 @@
 				<td>{{ $p->birthday }}</td>
 				<td>{{ $p->address }}</td>
 				<td>{{ $p->spouse }}</td>
-				<td>{{ $p->contact }}</td>
-				<td></td>
+				<td>{{ $p->contact }}</td> 
 			</tr>
 		@endforeach 
 	</table>

@@ -12,8 +12,13 @@
   <link href="{{ asset('vendor_styles/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="{{ asset('css/sb-admin.css') }}" rel="stylesheet">
+  <style type="text/css">
+    body{
+    background: #20c997  !important;
+}
+  </style>
 </head>
-<body class="bg-dark">
+<body>
     <div class="container">
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">
@@ -37,19 +42,17 @@
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
             <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password" name="password">
-          </div><br>
-          <div class="form-group">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox"> Remember Password</label>
-            </div>
-          </div> <br>
-          <button type="submit" class="btn btn-primary btn-block">
+          </div><br> 
+          <button type="submit" class="btn btn-default btn-block">
             Login
           </button> 
         </form> 
       </div>
     </div>
-  </div>  
+  </div>  <br>
+    <div  class="text-center" style="color:#f0f0f0;">
+        <h4>Livingway Gospel Ministries, Inc</h4>
+        <p >CC8 Tracker System</p>
+    </div>
     </body>
 </html>
