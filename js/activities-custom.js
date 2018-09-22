@@ -1,10 +1,11 @@
 
+var base_url = document.getElementById('base_url').value;
+
  $(document).ready(function(){
  
     $('#peopleModal .btn-go').click(function(){
       var input = $('#people-search').val(); 
       var tbody = $('#peopleModal table tbody');
-      var base_url = $('#base_url').val();
 
       tbody.html('<tr><td colspan="4" align="center">Retrieving data....</td></tr>');
 
@@ -73,3 +74,27 @@ $(function(){
     return false;
   });
 });
+ 
+
+
+function printFunc() {
+    var divToPrint = document.getElementById('printarea');
+    var htmlToPrint = '' +
+        '<style type="text/css">' +
+        'table th, table td {' + 
+        'padding:0.5em;' +
+        'border-collapse: collapse;' + 
+        'border: 1px solid #888;' + 
+        '}' +
+        '.edit{ display:none; }' +
+        'table{ width :100%; border-collapse: collapse; border-spacing: 0; }' +
+        'table th{ background:#dee2e6 !important; }' +   
+        'ul li { list-style:none; float:left; margin-left:10px; }' +
+        '</style>';
+    htmlToPrint += divToPrint.outerHTML;
+    newWin = window.open("");
+    newWin.document.write("<h4>People Report</h4>");
+    newWin.document.write(htmlToPrint);
+   newWin.print();
+   newWin.close();
+}

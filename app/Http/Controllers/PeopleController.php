@@ -16,7 +16,7 @@ class PeopleController extends Controller
             $input = request()->input('search');
             $people = $people->where('lastname', 'LIKE', $input);
         }
-        $people = $people->paginate(15);
+        $people = $people->paginate(20);
     	return view('people.index', compact('people'));
     }
 
