@@ -13,8 +13,8 @@ class DashboardController extends Controller
     	$people   = new People();
     	$seminar  = new Seminar();
     	return view('dashboard', [
-    		'birthday' => $people->upcomingBirthdays(),
-    		'seminar'  => $seminar->recent()
+    		'people'   => $people,
+    		'seminar'  => $seminar->recent() 
     	]);
     }
 }
