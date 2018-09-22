@@ -22,6 +22,11 @@ class CreatePeopleTable extends Migration
             $table->string('address', 250)->nullable();
             $table->string('contact', 50)->nullable();
             $table->string('spouse', 50)->nullable();
+            $table->string('total_kids', 50)->nullable();
+            $table->integer('department')->nullable();
+            $table->string('mentor', 100)->nullable();
+            $table->string('work', 100)->nullable();
+            $table->string('status', 100)->default('Active');
             $table->timestamps();
         });
     }

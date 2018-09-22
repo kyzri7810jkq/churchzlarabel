@@ -32,6 +32,11 @@ Route::prefix('people')->group(function(){
 	Route::post('/store', 'PeopleController@store')->name('store_people')->middleware('auth');
 	Route::get('/', 'PeopleController@index')->name('view_people')->middleware('auth');
 	Route::post('/ajax-search', 'PeopleController@ajax')->middleware('auth');
+	Route::get('/edit/{id}', 'PeopleController@edit')->name('edit_people')->middleware('auth');
+	Route::post('/update', 'PeopleController@update')->name('update_people')->middleware('auth');
+	Route::get('/edit', function(){
+		return redirect()->route('view_people');
+	});
 });
 
 Route::prefix('seminars')->group(function(){

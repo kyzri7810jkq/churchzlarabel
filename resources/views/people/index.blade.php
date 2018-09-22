@@ -19,23 +19,27 @@
 		Add New &nbsp;<i class="fa fa-plus"></i>
 	</a><br><br>
 	
-	<table class="table table-striped">
+	<table class="table table-striped table-hover">
 		<tr>
 			<th>ID</th>
 			<th>Complete Name</th>
 			<th>Birthday</th>
-			<th>Address</th>
-			<th>Spouse</th>
+			<th>Address</th> 
 			<th>Contact</th> 
+			<th>Discipler</th>
+			<th>Status</th>
+			<th></th>
 		</tr>
 		@foreach($people as $p)
 			<tr>
 				<td>{{ $p->id }}</td>
 				<td>{{ $p->lastname . ', ' . $p->firstname }}</td>
-				<td>{{ $p->birthday }}</td>
-				<td>{{ $p->address }}</td>
-				<td>{{ $p->spouse }}</td>
-				<td>{{ $p->contact }}</td> 
+				<td>{{ date('F d,Y', strtotime($p->birthday)) }}</td>
+				<td>{{ $p->address }}</td> 
+				<td>{{ $p->contact }}</td>
+				<td>{{ $p->mentor }}</td>
+				<td class="{{ ($p->status!='Active') ? 'text-danger' : 'text-success'}}">{{ $p->status  }}</td>
+				<td><a href="{{ route('edit_people', $p->id) }}" class="btn btn-sm btn-warning">Edit</a></td> 
 			</tr>
 		@endforeach 
 	</table>

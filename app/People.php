@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class People extends Model
 {
-    protected $fillable = ['lastname', 'firstname', 'middlename', 'birthday', 'address', 'contact', 'spouse']; 
+    protected $fillable = ['lastname', 'firstname', 'middlename', 'birthday', 'address', 'contact', 'spouse', 'total_kids', 'department', 'mentor', 'work', 'status']; 
 
     private $_advancedob = 7;
 

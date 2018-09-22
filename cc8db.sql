@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 08, 2018 at 07:02 AM
+-- Generation Time: Sep 22, 2018 at 07:00 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.0.21
 
@@ -25,6 +25,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `departments`
+--
+
+CREATE TABLE `departments` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `dept_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `departments`
+--
+
+INSERT INTO `departments` (`id`, `dept_name`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'Kids', 'Kids', NULL, NULL),
+(2, 'High School', 'High School', NULL, NULL),
+(3, 'College', 'College', NULL, NULL),
+(5, 'Young Prof/Working', 'Young Prof/Working', NULL, NULL),
+(6, 'Couples', 'Couples', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -42,8 +67,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2018_09_04_032133_create_tracks_table', 1),
-(4, '2018_09_06_025031_create_people_table', 2),
-(5, '2018_09_07_014119_create_seminars_table', 3);
+(5, '2018_09_07_014119_create_seminars_table', 3),
+(6, '2018_09_06_025031_create_people_table', 4),
+(7, '2018_09_22_040952_create_departments_table', 5);
 
 -- --------------------------------------------------------
 
@@ -72,6 +98,11 @@ CREATE TABLE `people` (
   `address` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `contact` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `spouse` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `total_kids` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `department` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mentor` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `work` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Active',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -80,27 +111,10 @@ CREATE TABLE `people` (
 -- Dumping data for table `people`
 --
 
-INSERT INTO `people` (`id`, `lastname`, `firstname`, `middlename`, `birthday`, `address`, `contact`, `spouse`, `created_at`, `updated_at`) VALUES
-(1, 'amador', 'samuel', 'ignacio', '1989-09-09', 'sdsd', '3984', 'kjh', '2018-09-05 20:27:47', '2018-09-05 20:27:47'),
-(2, 'sdhj', 'sdf', '123', '1989-09-10', '123', '123', '123', '2018-09-05 20:41:58', '2018-09-05 20:41:58'),
-(3, 'sdf', 'kjdkfh', 'kdjf', '1989-01-01', NULL, NULL, NULL, '2018-09-05 20:43:09', '2018-09-05 20:43:09'),
-(4, 'asd', 'jsjkh', NULL, '1989-12-12', NULL, NULL, NULL, '2018-09-05 20:44:40', '2018-09-05 20:44:40'),
-(5, 'aaksdj', 'kjshdj', 'kjsds', '1989-12-12', NULL, NULL, NULL, '2018-09-05 20:45:11', '2018-09-05 20:45:11'),
-(6, 'asd', 'jksjdh', 'as', '1989-12-12', NULL, NULL, NULL, '2018-09-05 20:46:49', '2018-09-05 20:46:49'),
-(7, 'asd', 'kjshj', 'ksjk', '1989-12-01', NULL, NULL, NULL, '2018-09-05 20:54:09', '2018-09-05 20:54:09'),
-(8, 'asd', 'sjh', 'jsdg', '1989-01-01', NULL, NULL, NULL, '2018-09-05 20:55:20', '2018-09-05 20:55:20'),
-(9, 'sdf', 'dfgj', 'hjdg', '1989-08-20', NULL, NULL, NULL, '2018-09-06 03:42:20', '2018-09-06 03:42:20'),
-(10, 'sdf', 'jhdg', 'jhgdfh', '1989-12-12', NULL, NULL, NULL, '2018-09-06 03:43:46', '2018-09-06 03:43:46'),
-(11, 'sd', 'sdf', 'sdf', '1989-12-12', NULL, NULL, NULL, '2018-09-06 03:44:35', '2018-09-06 03:44:35'),
-(12, 'asd', 'sdf', '1989', '1989-12-12', NULL, NULL, NULL, '2018-09-06 03:45:00', '2018-09-06 03:45:00'),
-(13, 'sdf', 'sdf', 'sdf', '1989-12-12', NULL, NULL, NULL, '2018-09-06 03:45:35', '2018-09-06 03:45:35'),
-(14, 'asdad', 'asd', 'asd', '1989-12-12', NULL, NULL, NULL, '2018-09-06 03:46:33', '2018-09-06 03:46:33'),
-(15, 'Amador', 'samuel', 'ignacio', '1989-08-27', NULL, '93874', NULL, '2018-09-06 22:06:54', '2018-09-06 22:06:54'),
-(16, 'amador', 'rica', 'test', '1989-12-01', NULL, NULL, NULL, '2018-09-06 22:07:13', '2018-09-06 22:07:13'),
-(17, 'Doe', 'John', 'Test', '1989-12-08', 'adasd\r\nasdasd', '029348', 'spouse', '2018-09-06 23:25:35', '2018-09-06 23:25:35'),
-(18, 'Jordan', 'Michael', NULL, '1989-12-12', NULL, '237', '982', '2018-09-07 03:46:53', '2018-09-07 03:46:53'),
-(19, 'Curry', 'Stephen', NULL, '1989-09-11', 'sdf', 'asd', 'dfd86f', '2018-09-07 03:47:56', '2018-09-07 03:47:56'),
-(20, 'amador', 'tomasa', NULL, '1960-09-11', 'sdfsdf', 'sdgf', 'jhgsd', '2018-09-07 03:49:27', '2018-09-07 03:49:27');
+INSERT INTO `people` (`id`, `lastname`, `firstname`, `middlename`, `birthday`, `address`, `contact`, `spouse`, `total_kids`, `department`, `mentor`, `work`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Amador', 'Samuel', 'Ignacio', '2018-08-27', '!@$%^&*( akshdkajd', '0234839', '!@#$%^&*()', '!@#', '5', 'Dada Havz Alorro', 'IT teacher', 'Active', '2018-09-21 19:57:12', '2018-09-21 20:45:53'),
+(2, 'fds', 'jfd', 'jgfd', '1989-08-27', '3423', 'hgfh', 'spouse', '54', NULL, 'gfd', 'gdgf', 'InActive', '2018-09-21 20:41:38', '2018-09-21 20:41:38'),
+(3, 'asd', 'ajdshg', 'shdgj', '1989-08-27', 'ksj', 'sdkfjh', 'dksfjh', '234', '2', 'sdfh', 'jhfgdj', 'Active', '2018-09-21 20:42:58', '2018-09-21 20:45:42');
 
 -- --------------------------------------------------------
 
@@ -185,6 +199,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `remember_token`
 --
 
 --
+-- Indexes for table `departments`
+--
+ALTER TABLE `departments`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -226,15 +246,20 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `departments`
+--
+ALTER TABLE `departments`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `people`
 --
 ALTER TABLE `people`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `seminars`
 --
@@ -249,7 +274,7 @@ ALTER TABLE `tracks`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;COMMIT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

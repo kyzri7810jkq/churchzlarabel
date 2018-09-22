@@ -4,11 +4,12 @@
     $('#peopleModal .btn-go').click(function(){
       var input = $('#people-search').val(); 
       var tbody = $('#peopleModal table tbody');
+      var base_url = $('#base_url').val();
 
       tbody.html('<tr><td colspan="4" align="center">Retrieving data....</td></tr>');
 
       $.ajax({
-        url: "/people/ajax-search",
+        url: base_url + "/people/ajax-search",
         method: 'POST',
         data: {
           '_token' : $('input[name="_token"]').val(),
@@ -16,15 +17,20 @@
         },
         success: function(result){    
           var mytr = '';
-          for(var x=0; x < result.length; x++){
-            mytr += '<tr>'
-            mytr += '<td>' + result[x].id + '</td>';
-            mytr += '<td>' + result[x].firstname + '</td>';
-            mytr += '<td>' + result[x].lastname + '</td>';
-            mytr += '<td><button data-birthday="'+ result[x].birthday +'" data-address="'+ result[x].address +'" data-contact="'+ result[x].contact +'" data-spouse="' + result[x].spouse+'" data-id="' + result[x].id  +
-                    '" data-person="'+ result[x].firstname + ' ' + result[x].lastname + 
-                    '" class="btn btn-xs btn-primary selectStudent">Select</button></td>'
-            mytr += '</tr>';
+          if(result.length > 0){ 
+            for(var x=0; x < result.length; x++){
+              mytr += '<tr>'
+              mytr += '<td>' + result[x].id + '</td>';
+              mytr += '<td>' + result[x].firstname + '</td>';
+              mytr += '<td>' + result[x].lastname + '</td>';
+              mytr += '<td><button data-birthday="'+ result[x].birthday +'" data-address="'+ result[x].address +'" data-contact="'+ result[x].contact +'" data-spouse="' + result[x].spouse+'" data-id="' + result[x].id  +
+                      '" data-person="'+ result[x].firstname + ' ' + result[x].lastname + 
+                      '" class="btn btn-xs btn-primary selectStudent">Select</button></td>'
+              mytr += '</tr>';
+            }
+          }
+          else{
+            mytr += '<tr><td colspan="6">No Record found</td></tr>';
           }
           tbody.html(mytr);
         }

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title> @yield('title') - {{ config('app.name') }}</title> 
- 
   <link href="{{ asset('vendor_styles/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
   <!-- Custom fonts for this template-->
@@ -18,6 +17,7 @@
 
 </head>
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <input type="hidden" id="base_url" value="{{ url('/') }}">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="{{ route('dashboard') }}">{{ config('app.name') }}</a>

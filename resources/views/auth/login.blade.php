@@ -13,9 +13,15 @@
   <!-- Custom styles for this template-->
   <link href="{{ asset('css/sb-admin.css') }}" rel="stylesheet">
   <style type="text/css">
-    body{
-    background: #20c997  !important;
-}
+  body{ 
+    background: url({{ asset('images/bg.jpg') }}) no-repeat;
+    background-size:cover;
+  }
+  .container{
+    background: rgba(0,0,0, .4);
+    padding:10px; 
+    margin-top: 20px;
+  }
   </style>
 </head>
 <body>
@@ -49,10 +55,11 @@
         </form> 
       </div>
     </div>
-  </div>  <br>
+    <br>
     <div  class="text-center" style="color:#f0f0f0;">
         <h4>Livingway Gospel Ministries, Inc</h4>
         <p >CC8 Tracker System</p>
     </div>
+  </div>  
     </body>
 </html>
